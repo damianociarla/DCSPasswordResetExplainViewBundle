@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dcs_password_reset.explain.view.validator.username_exists.class">DCS\PasswordReset\Explain\ViewBundle\Validator\Constraints\UsernameExistsValidator</parameter>
+    </parameters>
+
+    <services>
+        <service id="dcs_password_reset.explain.view.validator.username_exists" class="%dcs_password_reset.explain.view.validator.username_exists.class%">
+            <argument type="service" id="dcs_user.repository" />
+            <tag name="validator.constraint_validator" alias="username_exists" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,6 @@
+{% trans_default_domain 'DCSPasswordResetExplainViewBundle' %}
+{{ form_start(form, {'action' : path('dcs_password_reset_reset', {'token' : token})}) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.password) }}
+    <button type="submit">{{ 'button.reset'|trans }}</button>
+{{ form_end(form) }}
