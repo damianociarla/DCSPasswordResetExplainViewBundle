@@ -22,7 +22,7 @@ class DCSPasswordResetExplainViewExtension extends Extension
         $container->setParameter('dcs_password_reset.explain.view.form.request', $config['form']['request']);
         $container->setParameter('dcs_password_reset.explain.view.form.reset', $config['form']['reset']);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('validator.xml');
     }
 }

@@ -14,7 +14,7 @@ class PasswordResetController extends Controller
     /**
      * Action that exposes the form for a new change password request
      *
-     * @see DCS/User/PasswordReset/Explain/ViewBundle/Resources/config/routing/password_reset.xml
+     * @see DCS/PasswordReset/Explain/ViewBundle/Resources/config/routing/password_reset.xml
      */
     public function createRequestAction(Request $request)
     {
@@ -54,7 +54,7 @@ class PasswordResetController extends Controller
     /**
      * Action that exposes the form for the change password
      *
-     * @see DCS/User/PasswordReset/Explain/ViewBundle/Resources/config/routing/password_reset.xml
+     * @see DCS/PasswordReset/Explain/ViewBundle/Resources/config/routing/password_reset.xml
      */
     public function resetAction(Request $request, $token)
     {
