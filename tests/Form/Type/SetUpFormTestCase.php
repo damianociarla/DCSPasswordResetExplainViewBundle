@@ -26,7 +26,7 @@ abstract class SetUpFormTestCase extends TypeTestCase
 
     protected function getTypeExtensions()
     {
-        $validator = $this->getMock(ValidatorInterface::class);
+        $validator = $this->createMock(ValidatorInterface::class);
         $validator->method('validate')->will($this->returnValue(new ConstraintViolationList()));
 
         return [
