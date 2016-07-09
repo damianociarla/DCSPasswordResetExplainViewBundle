@@ -7,22 +7,12 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 
-class ResetRequestHttpRequestFormEvent extends Event
+class ResetRequestHttpRequestFormEvent extends HttpRequestFormEvent
 {
     /**
      * @var ResetRequestInterface
      */
     private $resetRequest;
-
-    /**
-     * @var Request
-     */
-    private $request;
-
-    /**
-     * @var Form
-     */
-    private $form;
 
     /**
      * ResetRequestHttpRequestExceptionFormEvent constructor.
@@ -33,9 +23,8 @@ class ResetRequestHttpRequestFormEvent extends Event
      */
     public function __construct(ResetRequestInterface $resetRequest, Request $request, Form $form)
     {
+        parent::__construct($request, $form);
         $this->resetRequest = $resetRequest;
-        $this->request = $request;
-        $this->form = $form;
     }
 
     /**
@@ -46,25 +35,5 @@ class ResetRequestHttpRequestFormEvent extends Event
     public function getResetRequest()
     {
         return $this->resetRequest;
-    }
-
-    /**
-     * Get request
-     *
-     * @return Request
-     */
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
-    /**
-     * Get form
-     *
-     * @return Form
-     */
-    public function getForm()
-    {
-        return $this->form;
     }
 }
