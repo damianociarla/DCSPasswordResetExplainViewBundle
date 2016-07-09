@@ -17,6 +17,7 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^5",
+    "dcs/user-core-bundle": "~1.0@dev",
     "dcs/password-reset-core-bundle": "~1.0@dev",
     "symfony/framework-bundle": "~2.8|~3.0"
   },
