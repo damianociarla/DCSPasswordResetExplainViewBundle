@@ -3,9 +3,7 @@
 namespace DCS\PasswordReset\Explain\ViewBundle\Tests\Event;
 
 use DCS\PasswordReset\CoreBundle\Model\ResetRequestInterface;
-use DCS\PasswordReset\Explain\ViewBundle\Event\HttpRequestFormEvent;
 use DCS\PasswordReset\Explain\ViewBundle\Event\ResetRequestHttpRequestResponseEvent;
-use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
