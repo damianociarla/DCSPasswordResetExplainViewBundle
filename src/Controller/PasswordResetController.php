@@ -24,9 +24,7 @@ class PasswordResetController extends Controller
         if ($form->isValid()) {
             try {
                 $user = $this->get('dcs_user.repository')->findOneByUsername($form->get('username')->getData());
-
-                $createResetRequest = $this->get('dcs_password_reset.handler.create_reset_request');
-                $resetRequest = $createResetRequest($user);
+                $resetRequest = $this->get('dcs_password_reset.handler.create_reset_request')->__invoke($user);
 
                 $event = new Event\ResetRequestHttpRequestResponseEvent($resetRequest, $request);
                 $this->get('event_dispatcher')->dispatch(DCSPasswordResetExplainViewEvents::RESET_REQUEST_CREATED_SUCCESSFULLY, $event);
@@ -69,8 +67,7 @@ class PasswordResetController extends Controller
 
         if ($form->isValid()) {
             try {
-                $resetPasswordFromToken = $this->get('dcs_password_reset.handler.reset_password');
-                $resetPasswordFromToken($resetRequest, $form->get('password')->getData());
+                $this->get('dcs_password_reset.handler.reset_password')->__invoke($resetRequest, $form->get('password')->getData());
 
                 $event = new Event\ResetRequestHttpRequestResponseEvent($resetRequest, $request);
                 $this->get('event_dispatcher')->dispatch(DCSPasswordResetExplainViewEvents::PASSWORD_UPDATED_SUCCESSFULLY, $event);
