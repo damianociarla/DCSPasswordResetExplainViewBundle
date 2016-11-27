@@ -14,8 +14,8 @@ class UsernameExistsValidatorTest extends AbstractConstraintValidatorTest
 
     protected function createValidator()
     {
-        $user = $this->createMock(UserInterface::class);
-        $userRepository = $this->createMock(UserRepositoryInterface::class);
+        $user = $this->getMockBuilder(UserInterface::class)->getMock();
+        $userRepository = $this->getMockBuilder(UserRepositoryInterface::class)->getMock();
 
         $userRepository
             ->expects($this->any())
